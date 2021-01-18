@@ -58,7 +58,8 @@ const resolvers = {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { books: { bookId: bookId } } },
+                    //In your code you had `books` but your in your model it is `savedBooks`
+                    { $pull: { savedBooks: { bookId: bookId } } },
                     { new: true }
                   );
    
